@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500&display=swap');
+
+:root {
+    --primary-color: #00f3ff;
+    --secondary-color: #ff3366;
+    --glass-bg: rgba(10, 15, 30, 0.85);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --text-glow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #1a1a2e;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    user-select: none;
+}
+
+#canvas-container {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+/* UI Overlay */
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: auto;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    text-shadow: var(--text-glow);
+}
+
+#status-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: var(--glass-border);
+    padding: 15px 30px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: 0 0 5px #333;
+    transition: 0.3s;
+}
+
+.status-indicator.active-white {
+    background-color: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+.status-indicator.active-black {
+    background-color: #111;
+    border: 1px solid #555;
+    box-shadow: 0 0 10px var(--secondary-color);
+}
+
+#turn-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+#game-message {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--secondary-color);
+    display: none;
+}
+
+#controls {
+    pointer-events: auto;
+    align-self: flex-end;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Modal */
+#modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: rgba(20, 20, 40, 0.95);
+    border: 2px solid var(--primary-color);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+    max-width: 400px;
+}
+
+.modal-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-top: 0;
+    color: white;
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.hidden { display: none !important; }
